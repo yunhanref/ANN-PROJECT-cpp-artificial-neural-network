@@ -13,10 +13,9 @@ DenseLayer::DenseLayer(int in_dim, int out_dim, IActivation* act)
 DenseLayer::~DenseLayer() noexcept {}
 
 Matrix DenseLayer::forward(const Matrix& in) {
-    // 1. Lineer Donusum (Z = W * X + b)
+
     Matrix z = weights * in + bias;
-    
-    // 2. Aktivasyon Fonksiyonu
+
     Matrix a(z.rows, z.cols);
     for (int i = 0; i < z.rows; i++) {
         for (int j = 0; j < z.cols; j++) {
