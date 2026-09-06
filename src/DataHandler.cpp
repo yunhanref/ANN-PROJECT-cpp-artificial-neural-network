@@ -4,7 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
-#include <algorithm> // trim için gerekli olabilir
+#include <algorithm>
 
 Matrix DataHandler::loadCSV(const std::string& path, bool hasHeader) {
     std::ifstream file(path);
@@ -24,12 +24,12 @@ Matrix DataHandler::loadCSV(const std::string& path, bool hasHeader) {
 
         while (std::getline(ss, cell, ',')) {
             try {
-                // Sadece sayıya çevrilebilenleri al
+                
                 size_t pos;
                 double val = std::stod(cell, &pos);
                 row.push_back(val);
             } catch (...) {
-                // Sayıya çevrilemiyorsa (örn: metin varsa) atla
+                
                 continue; 
             }
         }
@@ -37,7 +37,7 @@ Matrix DataHandler::loadCSV(const std::string& path, bool hasHeader) {
         if (!row.empty()) rows.push_back(row);
     }
     
-    // Matris oluşturma kısmında satır/sütun eşitleme
+   
     int nRows = static_cast<int>(rows.size());
     int nCols = 0;
     for(const auto& r : rows) if((int)r.size() > nCols) nCols = (int)r.size();
