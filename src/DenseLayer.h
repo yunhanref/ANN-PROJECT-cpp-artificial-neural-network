@@ -14,7 +14,6 @@ public:
 
     Matrix forward(const Matrix& in) override;
 
-    // Veri/Dosya isleme modulu icin agirlik erisimi
     const Matrix& getWeights() const { return weights; }
     const Matrix& getBias() const { return bias; }
     void setWeights(const Matrix& w) { weights = w; }
